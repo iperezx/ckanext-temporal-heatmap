@@ -80,7 +80,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        temporal-heatmap=ckanext.temporal-heatmap.plugin:Temporal-HeatmapPlugin
+        temporal_heatmap=ckanext.temporal_heatmap.plugin:TemporalHeatmapPlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
