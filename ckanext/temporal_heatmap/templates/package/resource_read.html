@@ -1,0 +1,14 @@
+{% ckan_extends %}
+
+{% block resource_additional_information_inner %}
+  {% set temporal_data=h.get_generated_temporal_data(res) %}
+  {% if temporal_data is not none%}
+    {% block data_availability %}
+        <div class="module-content">
+        <h2>{{ _('Data Availability') }}</h2>
+
+        </div>
+    {% endblock %}
+  {% endif %}
+  {{ super() }}
+{% endblock %}

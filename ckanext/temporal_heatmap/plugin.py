@@ -1,9 +1,12 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-
+from ckanext.temporal_heatmap.lib.helpers import (get_generated_temporal_data)
 
 class TemporalHeatmapPlugin(plugins.SingletonPlugin):
-    plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IConfigurer,inherit=True)
+    plugins.implements(plugins.IResourceView, inherit=True)
+    p.implements(p.ITemplateHelpers)
+
 
     # IConfigurer
 
@@ -11,3 +14,8 @@ class TemporalHeatmapPlugin(plugins.SingletonPlugin):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'temporal-heatmap')
+
+
+    # ITemplateHelpers
+    def get_generated_temporal_data(self):
+        return {'get_generated_temporal_data': get_generated_temporal_data}
