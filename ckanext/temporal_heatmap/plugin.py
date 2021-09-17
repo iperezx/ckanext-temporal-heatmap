@@ -5,7 +5,7 @@ from ckanext.temporal_heatmap.lib.helpers import (get_generated_temporal_data)
 class TemporalHeatmapPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer,inherit=True)
     plugins.implements(plugins.IResourceView, inherit=True)
-    p.implements(p.ITemplateHelpers)
+    plugins.implements(plugins.ITemplateHelpers)
 
 
     # IConfigurer
@@ -17,5 +17,5 @@ class TemporalHeatmapPlugin(plugins.SingletonPlugin):
 
 
     # ITemplateHelpers
-    def get_generated_temporal_data(self):
+    def get_helpers(self):
         return {'get_generated_temporal_data': get_generated_temporal_data}
